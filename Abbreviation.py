@@ -42,18 +42,24 @@ YES
 def abbreviation(a, b):
     n = len(a)
     m = len(b)
+    #creating table of size n+1 * m+1
     dp = [[-1 for _ in range(m+1)] for _ in range(n+1)]
 
+    #initialising Table
+    #initialising column 0
+    #if len(b) == 0 then a can only be converted to b only if remaining part of a doesn't have upper character as we can't del Upper character from a.
     s = ''
     for i in range(1,n+1):
         s += a[i-1]
         dp[i][0] = s.islower()
 
+    #initialising row 0. If size of b > 1 and size of a == 0: a can't be converted to b as insertion is not allowed. Hence False
     for j in range(m+1):
         dp[0][j] =  False
-
+    #if both a == [] and b == [], then a is converted to True. so dp[0][0] = True
     dp[0][0] = True
 
+    #filling up table
     for i in range(1,n+1):
         for j in range(1, m+1):
             if a[i-1] == b[j-1]:
