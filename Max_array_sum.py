@@ -1,4 +1,4 @@
-"""
+'''
 Given an array of integers, find the subset of non-adjacent elements with the maximum sum. Calculate the sum of that subset.
 
 For example, given an array arr = [-2, 1, 3, -4, 5] we have the following possible subsets: 
